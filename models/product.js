@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const {ObjectId} = mongoose.Schema;
+const { ObjectId } = mongoose.Schema;
 
 const productSchema = new mongoose.Schema(
     {
@@ -29,7 +29,7 @@ const productSchema = new mongoose.Schema(
             type: Number
         },
         sold: {
-            type: Number, 
+            type: Number,
             default: 0
         },
         photo: {
@@ -41,8 +41,7 @@ const productSchema = new mongoose.Schema(
             type: Boolean
         }
     },
-    {timestamps: true}
+    { timestamps: true }
 );
 
 module.exports = mongoose.model("Product", productSchema);
-

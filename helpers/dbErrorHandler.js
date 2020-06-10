@@ -1,5 +1,8 @@
 "use strict";
 
+/**
+ * Get unique error field name
+ */
 const uniqueMessage = error => {
     let output;
     try {
@@ -7,7 +10,7 @@ const uniqueMessage = error => {
             error.message.lastIndexOf(".$") + 2,
             error.message.lastIndexOf("_1")
         );
-        output = 
+        output =
             fieldName.charAt(0).toUpperCase() +
             fieldName.slice(1) +
             " already exists";
@@ -18,16 +21,19 @@ const uniqueMessage = error => {
     return output;
 };
 
+/**
+ * Get the erroror message from error object
+ */
 exports.errorHandler = error => {
     let message = "";
 
-    if(error.code) {
+    if (error.code) {
         switch (error.code) {
             case 11000:
             case 11001:
                 message = uniqueMessage(error);
                 break;
-            default: 
+            default:
                 message = "Something went wrong";
         }
     } else {
@@ -38,7 +44,5 @@ exports.errorHandler = error => {
     }
 
     return message;
-} 
+};
 
-
-  

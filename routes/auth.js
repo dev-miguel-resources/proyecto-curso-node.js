@@ -5,12 +5,9 @@ const {
     signup,
     signin,
     signout,
-    requireSignIn
+    requireSignin
 } = require("../controllers/auth");
-
-const {userSignupValidator} = require("../validator");
-
-// define routes
+const { userSignupValidator } = require("../validator");
 
 router.post("/signup", userSignupValidator, signup);
 router.post("/signin", signin);

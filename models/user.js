@@ -34,11 +34,10 @@ const userSchema = new mongoose.Schema(
             default: []
         }
     },
-    { timestamps: true}
+    { timestamps: true }
 );
 
 // virtual field
-
 userSchema
     .virtual("password")
     .set(function(password) {
@@ -56,7 +55,7 @@ userSchema.methods = {
     },
 
     encryptPassword: function(password) {
-        if(!password) return "";
+        if (!password) return "";
         try {
             return crypto
                 .createHmac("sha1", this.salt)
@@ -69,6 +68,3 @@ userSchema.methods = {
 };
 
 module.exports = mongoose.model("User", userSchema);
-
-
-
